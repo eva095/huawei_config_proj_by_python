@@ -1,12 +1,12 @@
 from data.devices import HUAWEI_SWITCHES
-from data.vlanif_data import VLAN_CONFIG, VRRP_CONFIG  # добавляем VRRP_CONFIG
+from data.vlanif_data import VLAN_CONFIG, VRRP_CONFIG  
 from core.vlanif_and_vrrp_logic import VlanIfConfigurator
 
 
 def main():
     for device in HUAWEI_SWITCHES:
         vlan_config = VLAN_CONFIG.get(device["host"], {})
-        vrrp_config = VRRP_CONFIG.get(device["host"], {})  # извлекаем настройки VRRP для устройства
+        vrrp_config = VRRP_CONFIG.get(device["host"], {}) 
         if vlan_config:
             configurator = VlanIfConfigurator(device, vlan_config, vrrp_config)
             configurator.connect()
