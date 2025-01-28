@@ -3,7 +3,7 @@ from time import sleep
 
 class OSPFConfigurator:
     def __init__(self, device, commands, static_routes=None):
-        self.device = device  # Переименовали host в device
+        self.device = device  
         self.commands = commands
         self.static_routes = static_routes if static_routes else []
         self.connection = None
@@ -11,9 +11,8 @@ class OSPFConfigurator:
     def connect(self):
         """Подключение к устройству."""
         try:
-            # Подключение через netmiko с использованием self.device
             self.connection = ConnectHandler(**self.device)
-            self.connection.timeout = 60  # Увеличенный тайм-аут
+            self.connection.timeout = 60  
             self.connection.read_timeout = 60
             self.connection.send_command_timing("system-view")
             sleep(1)
@@ -28,12 +27,12 @@ class OSPFConfigurator:
             for command in self.commands:
                 print(f"Отправляем команду: {command}")
                 self.connection.send_command_timing(command)
-                sleep(1)  # Ожидание между командами
+                sleep(1)  
 
             # Добавим команду commit
             print(f"Подтверждаем изменения на устройстве {self.device['host']}")
             self.connection.send_command_timing("commit")
-            sleep(1)  # Ожидание завершения команды commit
+            sleep(1)  
             print(f"Изменения подтверждены на {self.device['host']}")
 
     def delete_static_routes(self):
@@ -42,7 +41,7 @@ class OSPFConfigurator:
             for route in self.static_routes:
                 print(f"Отправляем статический маршрут: {route}")
                 self.connection.send_command_timing(route)
-                sleep(1)  # Ожидание между командами
+                sleep(1)  
             print(f"Статические маршруты применены на {self.device['host']}")
 
     def disconnect(self):
