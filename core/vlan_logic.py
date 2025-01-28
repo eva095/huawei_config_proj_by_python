@@ -11,7 +11,7 @@ class HuaweiSwitch:
         """Подключение к устройству."""
         try:
             self.connection = ConnectHandler(**self.device)
-            self.connection.timeout = 60  # Увеличенный тайм-аут
+            self.connection.timeout = 60  
             self.connection.read_timeout = 60
             self.connection.send_command_timing("system-view")
             sleep(1)  
