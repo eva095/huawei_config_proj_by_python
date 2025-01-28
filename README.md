@@ -41,7 +41,7 @@
 
 1. **Клонируйте репозиторий:**
    ```bash
-   git clone https://github.com/eva_095/D:\huawei_config_proj_by_python.git
+   git clone https://github.com/eva_095/huawei_config_proj_by_python.git
 
 2. Запуск скрипта и Установка необходимых зависимостей из requirements.txt:
 	
