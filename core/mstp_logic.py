@@ -12,10 +12,10 @@ class STPConfigurator:
         """Подключение к устройству."""
         try:
             self.connection = ConnectHandler(**self.device)
-            self.connection.timeout = 60  # Увеличенный тайм-аут
+            self.connection.timeout = 60  
             self.connection.read_timeout = 60
             self.connection.send_command_timing("system-view")
-            sleep(1)  # Даем время устройству обработать команду
+            sleep(1)  
             print(f"Перешли в режим system-view на {self.device['host']}")
         except Exception as e:
             print(f"Ошибка подключения к {self.device['host']}: {e}")
@@ -30,12 +30,12 @@ class STPConfigurator:
         try:
             for command in self.commands:
                 print(f"Отправка команды: {command}")
-                if "stp enable" in command:  # Если требуется подтвердить stp enable
+                if "stp enable" in command:  
                     output = self.connection.send_command_timing(command)
                     if "Y/N" in output:
                         output += self.connection.send_command_timing("Y")
                         print(f"STP enable подтверждено на {self.device['host']}")
-                    sleep(10)  # Ждём, чтобы STP поднялся
+                    sleep(10)  
                 else:
                     output = self.connection.send_command_timing(command)
                     print(f"Команда выполнена: {command}")
