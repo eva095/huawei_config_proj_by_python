@@ -14,10 +14,10 @@ def main():
         ospf_commands = OSPF_CONFIG.get(device["host"], [])
         if ospf_commands:
             ospf_configurator = OSPFConfigurator(device, ospf_commands)
-            ospf_configurator.connect()  # 
-            ospf_configurator.send_commands()  # 
+            ospf_configurator.connect()   
+            ospf_configurator.send_commands()  
             ospf_configurator.delete_static_routes()  
-            ospf_configurator.disconnect()  # 
+            ospf_configurator.disconnect()  
         else:
             print(f"Нет конфигурации OSPF для {device['host']}.")
 
