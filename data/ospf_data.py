@@ -1,0 +1,50 @@
+OSPF_CONFIG = {
+    "192.168.0.120" : [
+        "system-view",
+        "ospf 60",
+        "silent-interface Vlanif10",
+        "silent-interface Vlanif20",
+        "silent-interface Vlanif30",
+        "area 0",
+        "network 10.40.5.1 0.0.0.0",
+        "area 60",
+        "network 10.10.1.0 0.0.0.255",
+        "network 10.20.1.0 0.0.0.255",
+        "network 10.30.1.0 0.0.0.255",
+        "network 10.60.7.0 0.0.0.3",
+        "network 192.168.0.0 0.0.0.255",
+        "undo ip route-static 0.0.0.0 0.0.0.0 10.60.7.2",
+    ], 
+    "192.168.0.123" : [
+        "system-view",
+        "ospf 60",
+        "silent-interface Vlanif10",
+        "silent-interface Vlanif20",
+        "silent-interface Vlanif30",
+        "area 0.0.0.0",
+        "network 10.40.5.1 0.0.0.0",
+        "area 0.0.0.60",
+        "network 10.10.1.0 0.0.0.255",
+        "network 10.20.1.0 0.0.0.255",
+        "network 10.30.1.0 0.0.0.255",
+        "network 10.60.7.4 0.0.0.3",
+        "network 192.168.0.0 0.0.0.255",
+        "undo ip route-static 0.0.0.0 0.0.0.0 10.60.7.6",
+    ],    
+    "10.60.7.2" : [
+        "system-view",
+        "ospf 60",
+        "area 60",
+        "network 10.60.7.0 0.0.0.3",
+        "network 10.60.7.4 0.0.0.3",
+        "area 0",
+        "network 10.40.5.3 0.0.0.0",
+        "default-route-advertise always",
+        "save",
+        "yes",
+    ],
+}
+
+ 
+
+
