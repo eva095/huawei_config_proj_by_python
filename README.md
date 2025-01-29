@@ -46,17 +46,17 @@
 2. Запуск скрипта и установка необходимых зависимостей из requirements.txt:
 
 Windows:
-cd D:/huawei_config_proj_by_python
-python -m venv venv # Создание вирт окружения(Windows)
-venv\Scripts\activate # Активация вирт окружения(Windows)
-pip install -r requirements.tx
-python .\scripts\01_main_vlan.py
+- cd D:/huawei_config_proj_by_python
+- python -m venv venv # Создание вирт окружения(Windows)
+- venv\Scripts\activate # Активация вирт окружения(Windows)
+- pip install -r requirements.tx
+- python .\scripts\01_main_vlan.py
 
 Linux:
-python3 -m venv venv # Создание вирт окружения(Linux)
-source venv/bin/activate Активация вирт окружения(Linux)
-pip install -r requirements.tx
-python .\scripts\01_main_vlan.py
+- python3 -m venv venv # Создание вирт окружения(Linux)
+- source venv/bin/activate Активация вирт окружения(Linux)
+- pip install -r requirements.tx
+- python .\scripts\01_main_vlan.py
 
 
 ***Перед запуском конфигурационных скриптов, должно быть установленно соединение с каждым устройством по ssh, 
