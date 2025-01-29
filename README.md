@@ -10,7 +10,7 @@
 - SW_L2_1, 
 - SW_L2_2,
 - RO_1, 
-- RO_2,
+- RO_2(конфигурация выполнена вручную, конфигурация выполнена вручную),
 - Provider_Router(условный роутер провайдера)
 
 В рамках проекта произведена настройка следующих функций:
@@ -43,17 +43,19 @@
    ```bash
    git clone https://github.com/eva_095/huawei_config_proj_by_python.git
 
-2. Запуск скрипта и Установка необходимых зависимостей из requirements.txt:
+2. Запуск скрипта и установка необходимых зависимостей из requirements.txt:
 	
 	cd D:/huawei_config_proj_by_python
 	python -m venv venv # Создание вирт окружения(Windows)
 	venv\Scripts\activate # Активация вирт окружения(Windows)
+	pip install -r requirements.tx
 	python .\scripts\01_main_vlan.py
 
 	python3 -m venv venv # Создание вирт окружения(Linux)
 	source venv/bin/activate Активация вирт окружения(Linux)
+	pip install -r requirements.tx
 	python .\scripts\01_main_vlan.py
 
 
-***Перед запуском плейбука должно быть установленно соединение с каждым устройством по ssh, 
+***Перед запуском конфигурационных скриптов, должно быть установленно соединение с каждым устройством по ssh, 
 а так же настроен vlan-управления!
